@@ -61,20 +61,38 @@ class Channel:
         return f"{self.title} ({self.url})"
 
     def __add__(self, other):
+        """
+        +
+        """
         return self.view_count
 
     def __sub__(self, other):
-        return self.view_count
-
-    def __le__(self, other):
+        """
+        -
+        """
         return self.view_count
 
     def __lt__(self, other):
+        """
+        <
+        """
+        return self.view_count
+
+    def __le__(self, other):
+        """
+        <=
+        """
         return self.view_count
 
     def __gt__(self, other):
+        """
+        >
+        """
         return self.view_count
 
     def __ge__(self, other):
+        """
+        >=
+        """
         return self.view_count
 
