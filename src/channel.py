@@ -61,38 +61,47 @@ class Channel:
         return f"{self.title} ({self.url})"
 
     def __add__(self, other):
-        """
-        +
-        """
-        return self.view_count
+        if isinstance(other, Channel):
+            return int(self.subscriber_count + other.subscriber_count)
+        raise ValueError("Can only add Channel to another Channel")
 
     def __sub__(self, other):
         """
         -
         """
-        return self.view_count
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) - int(other.subscriber_count)
+        raise ValueError("Can only add Channel to another Channel")
 
     def __lt__(self, other):
         """
         <
         """
-        return self.view_count
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) < int(other.subscriber_count)
+        raise ValueError("Can only add Channel to another Channel")
 
     def __le__(self, other):
         """
         <=
         """
-        return self.view_count
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) <= int(other.subscriber_count)
+        raise ValueError("Can only add Channel to another Channel")
 
     def __gt__(self, other):
         """
         >
         """
-        return self.view_count
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) > int(other.subscriber_count)
+        raise ValueError("Can only add Channel to another Channel")
 
     def __ge__(self, other):
         """
         >=
         """
-        return self.view_count
+        if isinstance(other, Channel):
+            return int(self.subscriber_count) >= int(other.subscriber_count)
+        raise ValueError("Can only add Channel to another Channel")
 
