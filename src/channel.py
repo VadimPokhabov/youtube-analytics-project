@@ -62,7 +62,7 @@ class Channel:
 
     def __add__(self, other):
         if isinstance(other, Channel):
-            return int(self.subscriber_count + other.subscriber_count)
+            return int(self.subscriber_count) + int(other.subscriber_count)
         raise ValueError("Can only add Channel to another Channel")
 
     def __sub__(self, other):
