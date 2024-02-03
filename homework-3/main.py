@@ -15,3 +15,7 @@ if __name__ == '__main__':
     print(moscowpython < highload)  # True
     print(moscowpython <= highload)  # True
     print(moscowpython == highload)  # False
+
+
+    # print(moscowpython.subscriber_count)
+    # print(highload.subscriber_count)

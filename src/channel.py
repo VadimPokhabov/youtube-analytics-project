@@ -62,7 +62,8 @@ class Channel:
 
     def __add__(self, other):
         if isinstance(other, Channel):
-            return int(self.subscriber_count) + int(other.subscriber_count)
+            self.subscriber_count = int(self.subscriber_count) + int(other.subscriber_count)
+            return self.subscriber_count
         raise ValueError("Can only add Channel to another Channel")
 
     def __sub__(self, other):
@@ -70,38 +71,50 @@ class Channel:
         -
         """
         if isinstance(other, Channel):
-            return int(self.subscriber_count) - int(other.subscriber_count)
-        raise ValueError("Can only add Channel to another Channel")
+            self.subscriber_count = int(self.subscriber_count) - int(other.subscriber_count)
+            return self.subscriber_count
+        raise ValueError("Can only subtract Channel to another Channel")
 
     def __lt__(self, other):
         """
         <
         """
         if isinstance(other, Channel):
-            return int(self.subscriber_count) < int(other.subscriber_count)
-        raise ValueError("Can only add Channel to another Channel")
+            if self.subscriber_count < other.subscriber_count:
+                return True
+            else:
+                return False
+        raise ValueError("Can only less Channel to another Channel")
 
     def __le__(self, other):
         """
         <=
         """
         if isinstance(other, Channel):
-            return int(self.subscriber_count) <= int(other.subscriber_count)
-        raise ValueError("Can only add Channel to another Channel")
+            if self.subscriber_count <= other.subscriber_count:
+                return True
+            else:
+                return False
+        raise ValueError("Can only less than or equal to Channel to another Channel")
 
     def __gt__(self, other):
         """
         >
         """
         if isinstance(other, Channel):
-            return int(self.subscriber_count) > int(other.subscriber_count)
-        raise ValueError("Can only add Channel to another Channel")
+            if self.subscriber_count > other.subscriber_count:
+                return True
+            else:
+                return False
+        raise ValueError("Can only greater Channel to another Channel")
 
     def __ge__(self, other):
         """
         >=
         """
         if isinstance(other, Channel):
-            return int(self.subscriber_count) >= int(other.subscriber_count)
-        raise ValueError("Can only add Channel to another Channel")
-
+            if self.subscriber_count >= other.subscriber_count:
+                return True
+            else:
+                return False
+        raise ValueError("Can only greater than or equal to Channel to another Channel")
