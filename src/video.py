@@ -21,15 +21,17 @@ class Video:
         self.video_id = video_id
         self.video_info = get_video(video_id)
         try:
-            self.title = self.video_info['items'][0]['snippet']['title']
-            self.view_count = self.video_info['items'][0]['statistics']['viewCount']
-            self.like_count = self.video_info['items'][0]['statistics']['likeCount']
-            self.video_url = "https://www.youtube.com/watch?=" + self.video_id + '&ab_channel=MoscowPython'
+            item = self.video_info['items'][0]
         except IndexError:
             self.title = None
             self.view_count = None
             self.like_count = None
             self.video_url = None
+        else:
+            self.title = item['snippet']['title']
+            self.view_count = int(item['statistics']['viewCount'])
+            self.like_count = int(item['statistics']['likeCount'])
+            self.video_url = "https://www.youtube.com/watch?=" + self.video_id + '&ab_channel=MoscowPython'
 
     def __str__(self):
         return self.title
